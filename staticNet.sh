@@ -1,6 +1,6 @@
 #!/bin/bash
 # Program:
-#     用来设置静态ip。
+#     用来设置静态ip, 只适合RHEL或Centos。
 # 1、先检查发行版本，不支持的版本就退出
 # 2、再检查是否已经配置了静态ip，配了就退出
 # History:
@@ -11,7 +11,15 @@
 PATH=/bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-cp ..
+# 把需要的脚本都复制到~/bin下
+cp ./*.sh ~/bin/
+
+# 判断网卡配置文件是否存在
+if [ -a /etc/sysconfig/network-scripts/ifcfg-${ifname} ]; then
+    echo "这个脚本只适合redhat系列的发行版，比如centos。"
+    ./Get_Dist_Name.sh
+    exit 1
+if
 
 # 取到dhcp分配的ip和子网掩码
 ifname=$(echo ${mynetall} | awk '{print $5}')
@@ -36,12 +44,12 @@ mygateway=$(echo ${mynetall} | awk '{print $3}')
 # 取到网卡名
 ifname=$(echo ${mynetall} | awk '{print $5}')
 
-echo "开始修改网卡信息"
+echo "开始修改网卡信息";
 # 判断网卡配置文件是否存在
-if[ -f "/etc/sysconfig/network-scripts/ifcfg-${ifname}" ];then
-        sed -i 's/BOOTPROTO=dhcp/BOOTPROTO=static/g' /etc/sysconfig/network-scripts/ifcfg-${ifname}
-        sed -i 's/ONBOOT=no/ONBOOT=yes/g' /etc/sysconfig/network-scripts/ifcfg-${ifname}
-        echo -e "IPADDR=${myip}\\nNETMASK=${mynetmask}\\nGATEWAY=${mygateway}\\nDNS1=${mygateway}" >> /etc/sysconfig/network-scripts/ifcfg-${ifname}
-else
-    echo "this script is not suitable for your system, you should "
-
+#if [ -e "/etc/sysconfig/network-scripts/ifcfg-${ifname}" ];then
+#        sed -i 's/BOOTPROTO=dhcp/BOOTPROTO=static/g' /etc/sysconfig/network-scripts/ifcfg-${ifname}
+#        sed -i 's/ONBOOT=no/ONBOOT=yes/g' /etc/sysconfig/network-scripts/ifcfg-${ifname}
+#        echo -e "IPADDR=${myip}\\nNETMASK=${mynetmask}\\nGATEWAY=${mygateway}\\nDNS1=${mygateway}" >> /etc/sysconfig/network-scripts/ifcfg-${ifname}
+#else
+#   echo "this script is not suitable for your system, you should ";
+#fi
