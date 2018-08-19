@@ -2,7 +2,7 @@
 yourdist="your distribution is "
 Get_Dist_Name()
 {
-    if grep -Eqii "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
+    if grep -Eqi "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
         DISTRO='CentOS'
         PM='yum'
     elif grep -Eqi "Red Hat Enterprise Linux Server" /etc/issue || grep -Eq "Red Hat Enterprise Linux Server" /etc/*-release; then
@@ -29,3 +29,4 @@ Get_Dist_Name()
     echo "your distribution is $DISTRO";
 }
 Get_Dist_Name
+exit 0
