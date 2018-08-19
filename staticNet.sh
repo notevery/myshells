@@ -50,7 +50,7 @@ EOF
     if grep -q IPADDR $1;then
         echo "1、you have static ip already"
     else
-        echo -e "\\nIPADDR=${myip}" >> $1
+        echo -e "IPADDR=${myip}" >> $1
         echo "ip配置成功"
     fi
     #判断有没有子网掩码
@@ -58,7 +58,7 @@ EOF
     if grep -q NETMASK $1;then
         echo "2、you have NETMASK already"
     else
-        echo -e "\\nNETMASK=${mynetmask}" >> $1
+        echo -e "NETMASK=${mynetmask}" >> $1
         echo "netmask配置成功"
     fi
     #判断有没有网管
@@ -66,7 +66,7 @@ EOF
     if grep -q GATEWAY $1;then
         echo "3、you have GATEWAY already"
     else
-        echo -e "\\nGATEWAY=${mygateway}" >> $1
+        echo -e "GATEWAY=${mygateway}" >> $1
         echo "gateway配置成功"
     fi
     #判断有没有dns
@@ -74,7 +74,7 @@ EOF
     if grep -q DNS $1;then
         echo "4、you have DNS already"
     else
-        echo -e "\\nDNS1=${mygateway}" >> $1
+        echo -e "DNS1=${mygateway}" >> $1
         echo "dns配置成功"
     fi
     cat <<EOF
