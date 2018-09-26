@@ -1,0 +1,16 @@
+#1、现象：
+#客户的容器日志报unknown host www.baidu.com等关键字错误 #www.baidu.com是举例用的域名
+#2、排查解决方案
+#【2.1】在客户业务集群的master节点执行以下命令
+kubectl get pods -n kube-system -o wide| grep dns | awk '{print $(NF-1)}' > dns.txt
+
+#【2.2】在这个master节点上继续使用如下脚本判断是哪个主机的kube-dns有问题
+#[root@ip-172-31-1-44 ~]# cat 666.txt
+for i in `cat dns.txt`
+do
+timeout 5 nslookup -qt=A www.baidu.com $i #注意将www.baidu.com替换为客户的域名
+if [ $? -ne 0 ]
+then
+echo $i >> bad.txt
+fi
+done
