@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh """${env.GIT}"""
+                sh """echo ${env.GIT}"""
             }
         }
         stage('Build') {
