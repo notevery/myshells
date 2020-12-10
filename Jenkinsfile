@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment {
+        GIT = "$ref"
+    }
     stages {
         stage('Test') {
             steps {
-                sh 'echo haha'
+                sh """${env.GIT}"""
             }
         }
         stage('Build') {
