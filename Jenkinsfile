@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GIT = "$haha"
+        GIT = "$payload"
     }
     stages {
         stage('Test') {
