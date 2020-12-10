@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GIT = "$ref"
+        GIT = "$haha"
     }
     stages {
         stage('Test') {
