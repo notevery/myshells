@@ -15,6 +15,7 @@ pipeline {
                 sh """
                     echo ${env.GIT_COMMITTER_NAME}
                     echo ${env.GIT_COMMITTER_EMAIL}
+                    echo ${env.GIT_URL}
                 """
             }
         }
