@@ -16,6 +16,8 @@ pipeline {
                     echo ${env.GIT_COMMITTER_NAME}
                     echo ${env.GIT_COMMITTER_EMAIL}
                     echo ${env.GIT_URL}
+                    echo ${env.GIT_COMMIT}
+                    echo ${env.GIT_PREVIOUS_COMMIT}
                     echo ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}
                 """
             }
