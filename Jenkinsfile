@@ -10,6 +10,7 @@ pipeline {
                 sh """echo hahaha"""
                 sh """echo hasdfasdf"""
                 sh """echo asdf"""
+                sh """echo asdfadsf"""
             }
         }
         stage('Build') {
