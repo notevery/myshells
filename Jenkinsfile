@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh """echo ${env.GIT}"""
                 sh """echo hahaha"""
+                sh """echo js"""
             }
         }
         stage('Build') {
