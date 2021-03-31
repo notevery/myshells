@@ -9,6 +9,7 @@ pipeline {
                 sh """echo asdf"""
                 sh """echo hahaha"""
                 sh """echo asdf"""
+                sh """echo master"""
             }
         }
         stage('Build') {
