@@ -13,6 +13,7 @@ pipeline {
                 sh """echo js2"""
                 sh """echo js3"""
                 sh """echo js4"""
+                sh """echo js5"""
             }
         }
         stage('Build') {
