@@ -12,6 +12,7 @@ pipeline {
                 sh """echo pl2"""
                 sh """echo pl3"""
                 sh """echo pl4"""
+                sh """echo pl5"""
             }
         }
         stage('Build') {
