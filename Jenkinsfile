@@ -9,6 +9,7 @@ pipeline {
                 sh """echo ${env.GIT}"""
                 sh """echo hahaha"""
                 sh """echo hasdfasdf"""
+                sh """echo asdf"""
             }
         }
         stage('Build') {
