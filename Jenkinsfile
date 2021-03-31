@@ -11,6 +11,7 @@ pipeline {
                 sh """echo hasdfasdf"""
                 sh """echo asdf"""
                 sh """echo asdfadsf"""
+                sh """echo adsfxxx"""
             }
         }
         stage('Build') {
