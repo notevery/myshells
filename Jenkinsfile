@@ -10,6 +10,7 @@ pipeline {
                 sh """echo penglei"""
                 sh """echo pl"""
                 sh """echo pl2"""
+                sh """echo pl3"""
             }
         }
         stage('Build') {
