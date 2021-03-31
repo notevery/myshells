@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh """echo ${env.GIT}"""
+                sh """echo asdf"""
                 sh """echo hahaha"""
                 sh """echo asdf"""
             }
